@@ -1,0 +1,67 @@
+# Master Config
+
+seed: 42
+device: "cuda"
+dtype: "float16" # sm75 lacks native bf16, so use fp16 instead
+
+# Model
+model:
+  name: "google/gemma-3-1b-it"
+  max_seq_len: 128
+  generation_max_tokens: 64
+
+# SAE
+sae:
+  release: "gemma-scope-2-1b-it-res" # Gemma Scope 2 instruct tuned residual SAEs
+  release_all: "gemma-scope-2-1b-it-res-all" # all-layers
+  layers: [7, 13, 17, 22] # 25%, 50%, 65%, 85%
+  width: "16k"
+  l0: "medium"
+  primary_layer: 13
+  primary_sae_id: "layer_13_width_16k_l0_medium"
+
+# Dataset
+dataset:
+  classes:
+    - unanswerable
+    - underspecified
+    - false_premise
+    - safety_refusal
+  prompts_per_class: 300 # target 200-500
+  max_prompt_tokens: 64
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+# Activation collection
+activations:
+  batch_size: 4
+  token_positions: ["last", "last-1", "last-2"]
+  save_dtype: "float16"
+  stream_to_disk: true
+
+# Discovery
+discovery:
+  cohen_d_threshold: 0.6
+  probe_regularisation: 1.0 # L1 penalty for LR
+  probe_cv_folds: 5
+  top_k_features: 15
+
+# Steering
+steering:
+  coefficients: [-5.0, -3.0, -1.0, 0.0, 1.0, 3.0, 5.0, 10.0, 15.0, 20.0]
+  n_generations_per_coeff: 50
+  capability_eval_samples: 200
+
+# Circuits
+circuits:
+  attribution_method: "attribution_patching"
+  top_k_upstream: 10
+  min_attribution_score: 0.05
+
+# Reproducibility
+reproducibility:
+  log_dir: "results/logs"
+  figure_dir: "results/figures"
+  table_dir: "results/tables"
+  activation_dir: "results/activations"

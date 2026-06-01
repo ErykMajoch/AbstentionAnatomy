@@ -4,73 +4,73 @@ print("Import verification\n")
 
 try:
     import torch
-    print("✓ torch imported")
+    print("[OK] torch imported")
 except Exception as e:
-    print(f"✗ torch import failed: {e}")
+    print(f"[FAIL] torch import failed: {e}")
     exit(1)
 
 try:
     import transformer_lens
-    print("✓ transformer_lens imported")
+    print("[OK] transformer_lens imported")
 except Exception as e:
-    print(f"✗ transformer_lens import failed: {e}")
+    print(f"[FAIL] transformer_lens import failed: {e}")
     exit(1)
 
 try:
     import sae_lens
-    from sae_lens import SAE, HookedSAETransformer
-    print("✓ sae_lens imported")
+    from sae_lens import SAE, SAETransformerBridge
+    print("[OK] sae_lens imported")
 except Exception as e:
-    print(f"✗ sae_lens import failed: {e}")
+    print(f"[FAIL] sae_lens import failed: {e}")
     exit(1)
 
 try:
     import transformers
-    print("✓ transformers imported")
+    print("[OK] transformers imported")
 except Exception as e:
-    print(f"✗ transformers import failed: {e}")
+    print(f"[FAIL] transformers import failed: {e}")
     exit(1)
 
 try:
     import datasets
-    print("✓ datasets imported")
+    print("[OK] datasets imported")
 except Exception as e:
-    print(f"✗ datasets import failed: {e}")
+    print(f"[FAIL] datasets import failed: {e}")
     exit(1)
 
 try:
     import numpy as np
-    print("✓ numpy imported")
+    print("[OK] numpy imported")
 except Exception as e:
-    print(f"✗ numpy import failed: {e}")
+    print(f"[FAIL] numpy import failed: {e}")
     exit(1)
 
 try:
     import pandas as pd
-    print("✓ pandas imported")
+    print("[OK] pandas imported")
 except Exception as e:
-    print(f"✗ pandas import failed: {e}")
+    print(f"[FAIL] pandas import failed: {e}")
     exit(1)
 
 try:
     import sklearn
-    print("✓ sklearn imported")
+    print("[OK] sklearn imported")
 except Exception as e:
-    print(f"✗ sklearn import failed: {e}")
+    print(f"[FAIL] sklearn import failed: {e}")
     exit(1)
 
 try:
     import matplotlib
-    print("✓ matplotlib imported")
+    print("[OK] matplotlib imported")
 except Exception as e:
-    print(f"✗ matplotlib import failed: {e}")
+    print(f"[FAIL] matplotlib import failed: {e}")
     exit(1)
 
 try:
     import streamlit
-    print("✓ streamlit imported")
+    print("[OK] streamlit imported")
 except Exception as e:
-    print(f"✗ streamlit import failed: {e}")
+    print(f"[FAIL] streamlit import failed: {e}")
     exit(1)
 
 print(f"\nPyTorch:          {version('torch')}")
@@ -87,4 +87,4 @@ y = x @ x.T
 assert not torch.isnan(y).any(), "fp16 matmul produced NaN"
 print("fp16 matmul:      OK")
 
-print("\nAll checks passed.")
+print("\nAll checks passed")
