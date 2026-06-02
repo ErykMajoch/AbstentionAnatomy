@@ -7,6 +7,7 @@ from pathlib import Path
 import torch
 from src.config import setup
 from src.model import load_model, load_sae, print_memory_report
+from src.neuronpedia import fetch_neuronpedia_explanations
 
 config = setup(None)
 model = load_model(config)
@@ -52,8 +53,27 @@ print("-" * 30)
 for rank, (index, value) in enumerate(zip(top_indices, top_values)):
     print(f"{rank + 1:<6} {index.item():<12} {value.item():<12.4f}")
 
+# =================================
+# = C. Neuronpedia feature lookup =
+# =================================
+
+model_id = config["model"]["name"].split("/")[-1]
+sae_id = f"{layer}-gemmascope-2-res-16k"
+feature_ids = [idx.item() for idx in top_indices]
+activations = [val.item() for val in top_values]
+
+print(f"\nFetching Neuronpedia data for {len(feature_ids)} features")
+Path("results/00").mkdir(parents=True, exist_ok=True)
+explanations = fetch_neuronpedia_explanations(
+    model_id,
+    sae_id,
+    feature_ids,
+    activations,
+    save_path="results/00/top_features.csv",
+)
+
 # =============================
-# = C. Reconstruction Quality =
+# = D. Reconstruction Quality =
 # =============================
 
 sae_input_hook = model.get_sae_hook_name(sae, internal="hook_sae_input")
@@ -70,11 +90,11 @@ variance_per_pos = (
 ).mean(dim=-1)
 
 r_squared = 1 - mse_per_pos / variance_per_pos
-print(f"\nReconstruction quality (per token position):")
+print("\nReconstruction quality (per token position):")
 for position in range(tokens.shape[1]):
     token_string = model.tokenizer.decode(tokens[0, position])
     print(
-        f" Position {position} ('{token_string}'): R^2 = {r_squared[0, position].item():.4f}, MSE = {mse_per_pos[0, position].item():.4f}"
+        f"Position {position} ('{token_string}'): R^2 = {r_squared[0, position].item():.4f}, MSE = {mse_per_pos[0, position].item():.4f}"
     )
 
 overall_mse = mse_per_pos.mean().item()
@@ -97,7 +117,7 @@ with open("results/00/metrics.json", "w", encoding="utf-8") as file:
 print("\nMetrics saved to 'results/00/metrics.json'\n")
 
 # =================================================
-# = D. Batch verification across multiple prompts =
+# = E. Batch verification across multiple prompts =
 # =================================================
 
 test_prompts = [
@@ -142,7 +162,7 @@ with open("results/00/batch_metrics.json", "w", encoding="utf-8") as file:
 print("\nBatch metrics saved to 'results/00/batch_metrics.json'\n")
 
 # ===========================
-# = E. FP16 Stability Check =
+# = F. FP16 Stability Check =
 # ===========================
 
 print("\nFP16 Stability Check")
