@@ -1,0 +1,192 @@
+[
+  {
+    "prompt": "The Eiffel Tower is in the city of",
+    "top_prediction": " Paris",
+    "L0": 70,
+    "top_5_features": [
+      208,
+      667,
+      210,
+      7055,
+      374
+    ],
+    "top_5_activations": [
+      289.75,
+      283.75,
+      266.25,
+      210.25,
+      199.0
+    ]
+  },
+  {
+    "prompt": "The capital of Japan is",
+    "top_prediction": " Tokyo",
+    "L0": 73,
+    "top_5_features": [
+      210,
+      7055,
+      374,
+      203,
+      6177
+    ],
+    "top_5_activations": [
+      278.25,
+      220.125,
+      219.75,
+      192.5,
+      176.75
+    ]
+  },
+  {
+    "prompt": "Water freezes at",
+    "top_prediction": " ",
+    "L0": 70,
+    "top_5_features": [
+      2252,
+      87,
+      3006,
+      1211,
+      1310
+    ],
+    "top_5_activations": [
+      154.625,
+      154.0,
+      147.75,
+      143.5,
+      124.25
+    ]
+  },
+  {
+    "prompt": "The largest planet in our solar system is",
+    "top_prediction": " Jupiter",
+    "L0": 69,
+    "top_5_features": [
+      203,
+      6177,
+      1503,
+      374,
+      210
+    ],
+    "top_5_activations": [
+      293.0,
+      198.75,
+      188.5,
+      185.25,
+      179.75
+    ]
+  },
+  {
+    "prompt": "Python is a programming",
+    "top_prediction": " language",
+    "L0": 64,
+    "top_5_features": [
+      168,
+      268,
+      81,
+      631,
+      14333
+    ],
+    "top_5_activations": [
+      252.125,
+      216.125,
+      183.625,
+      174.0,
+      173.375
+    ]
+  },
+  {
+    "prompt": "Shakespeare wrote Romeo and",
+    "top_prediction": " Juliet",
+    "L0": 53,
+    "top_5_features": [
+      1176,
+      249,
+      272,
+      465,
+      374
+    ],
+    "top_5_activations": [
+      182.625,
+      166.0,
+      165.0,
+      142.375,
+      130.75
+    ]
+  },
+  {
+    "prompt": "The speed of light is approximately",
+    "top_prediction": " ",
+    "L0": 49,
+    "top_5_features": [
+      12183,
+      411,
+      1310,
+      374,
+      6107
+    ],
+    "top_5_activations": [
+      246.75,
+      217.5,
+      202.125,
+      171.75,
+      135.125
+    ]
+  },
+  {
+    "prompt": "Photosynthesis converts sunlight into",
+    "top_prediction": " chemical",
+    "L0": 58,
+    "top_5_features": [
+      853,
+      10740,
+      87,
+      613,
+      1525
+    ],
+    "top_5_activations": [
+      319.5,
+      226.625,
+      175.25,
+      144.75,
+      132.125
+    ]
+  },
+  {
+    "prompt": "The Great Wall of China is located in",
+    "top_prediction": " the",
+    "L0": 51,
+    "top_5_features": [
+      208,
+      485,
+      1961,
+      898,
+      374
+    ],
+    "top_5_activations": [
+      331.0,
+      244.5,
+      223.5,
+      184.75,
+      155.0
+    ]
+  },
+  {
+    "prompt": "The chemical symbol for gold is",
+    "top_prediction": " \"",
+    "L0": 58,
+    "top_5_features": [
+      3129,
+      6177,
+      208,
+      1203,
+      2585
+    ],
+    "top_5_activations": [
+      177.875,
+      173.0,
+      166.125,
+      160.875,
+      143.625
+    ]
+  }
+]

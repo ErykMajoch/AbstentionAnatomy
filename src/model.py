@@ -54,4 +54,6 @@ def print_memory_report():
         alloc = torch.cuda.memory_allocated() / 1e9
         reserved = torch.cuda.memory_reserved() / 1e9
         total = torch.cuda.get_device_properties(0).total_memory / 1e9
-        print(f"\nVRAM: {alloc:.2f}GB allocated / {reserved:.2f}GB reserved / {total:.2f}GB total")
+        print(
+            f"\nVRAM: {alloc:.2f}GB allocated / {reserved:.2f}GB reserved / {total:.2f}GB total"
+        )

@@ -1,0 +1,8 @@
+{
+  "prompt": "The Eiffel Tower is in the city of",
+  "layer": 13,
+  "n_active_features": 70,
+  "overall_r_squared": 0.9895069599151611,
+  "overall_mse": 375.97967529296875,
+  "top_prediction": " Paris"
+}
