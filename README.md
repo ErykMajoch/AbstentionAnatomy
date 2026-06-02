@@ -29,7 +29,7 @@ This project locates, causally validates and taxonomises the internal SAE featur
 
 This project proceeds in six phases:
 
-1. **Tooling verification**: Run factual prompts through the model with a hooked SAE, confirm that top-activating features are interpretable via [Neuronpedia](https://www.neuronpedia.org), and measure SAE reconstruction quality ($\text{R}^2$, $\text{MSE}$).
+1. **Tooling verification**: Run factual prompts through the model with a hooked SAE, confirm that top-activating features are interpretable through [Neuronpedia](https://www.neuronpedia.org), and measure SAE reconstruction quality ($\text{R}^2$, $\text{MSE}$).
 
 2. **Contrast dataset construction**: Build matched prompt pairs across four abstention categories (unanswerable, underspecified, false premise, safety refusal). Each pair holds topic, length and style constant. Only the abstention-triggering property differs. The model's actual behaviour (abstain vs answer) is labelled through greedy generation and keyword classification.
 
