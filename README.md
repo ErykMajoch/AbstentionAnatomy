@@ -1,2 +1,124 @@
-# AbstentionAnatomy
-Sparse-autoencoder features and circuits behind a language model's decision to decline
+# Anatomy of Abstention
+
+Using sparse autoencoders to mechanistically study how language models decide to abstain from answering.
+
+This project locates, causally validates and taxonomises the internal SAE features a language model uses when it decides whether to answer or abstain. It also investigates whether distinct abstention reasons (unanswerable, underspecified, false premise, safety refusal) have distinct internal signatures.
+
+## Table of Contents
+
+- [Key Details](#key-details)
+- [Methodology](#methodology)
+- [Hypotheses](#hypotheses)
+- [Installation](#installation)
+- [Quickstart](#quickstart)
+- [Results](#results)
+- [Compute Notes](#compute-notes)
+- [Author](#author)
+- [License](#license)
+
+## Key Details
+
+| | |
+|---|---|
+| **Model** | [Gemma 3 1B Instruct](https://huggingface.co/google/gemma-3-1b-it) (instruction tuned, ~1B parameters) |
+| **SAEs** | [Gemma Scope 2](https://huggingface.co/google/gemma-scope-2-1b-it) residual-stream SAEs (16k width, layers 7/13/17/22) |
+| **Hardware** | NVIDIA RTX 2070 Super (8 GB VRAM) |
+| **Framework** | [SAE Lens](https://github.com/decoderesearch/SAELens) with `SAETransformerBridge` |
+
+## Methodology
+
+This project proceeds in six phases:
+
+1. **Tooling verification**: Run factual prompts through the model with a hooked SAE, confirm that top-activating features are interpretable via [Neuronpedia](https://www.neuronpedia.org), and measure SAE reconstruction quality ($\text{R}^2$, $\text{MSE}$).
+
+2. **Contrast dataset construction**: Build matched prompt pairs across four abstention categories (unanswerable, underspecified, false premise, safety refusal). Each pair holds topic, length and style constant. Only the abstention-triggering property differs. The model's actual behaviour (abstain vs answer) is labelled through greedy generation and keyword classification.
+
+3. **Feature discovery**: Collect SAE feature activations for all prompts across multiple layers, then rank features using three complementary methods: standardised mean difference (Cohen's d), L1-regularised logistic probes and per-feature activation frequency analysis. Consensus features that appear across methods form the candidate set. Baselines (raw residual stream probes, logprob entropy) establish what the SAE features must beat.
+
+4. **Causal validation**: For each candidate feature, add scaled decoder directions to the residual stream (steering) or zero out feature activations (ablation) during generation. Dose-response curves across steering coefficients quantify the causal effect on abstention rate. Random-direction and unrelated-feature controls rule out artefacts. A capability evaluation checks that steering doesn't degrade general model performance.
+
+5. **Multiplicity and circuits**: Train a multiclass probe to test whether different abstention categories use distinct feature subsets (H3). Cross-steering experiments (amplifying one category's features on prompts from another) test feature specificity. Attribution patching traces which upstream SAE features at earlier layers feed into the identified abstention features.
+
+6. **Reporting**: Generate figures, write a technical report and build an interactive Streamlit demo for exploring feature steering in real time.
+
+## Hypotheses
+
+- **H1:** There exist SAE features whose activations reliably distinguish abstain-triggering prompts from answerable prompts.
+- **H2:** Causally amplifying or suppressing these features shifts the model's behaviour between answering and abstaining.
+- **H3:** Different abstention categories activate distinct feature subsets and not a single shared "refusal direction".
+
+## Installation
+
+### Prerequisites
+
+- Python 3.11
+- CUDA capable GPU (tested on RTX 2070 Super with CUDA 12.6)
+- [Conda](https://docs.conda.io/en/latest/miniconda.html)
+
+### Setup
+
+Create and activate the conda environment:
+
+```bash
+conda create -n .abs_venv python=3.11 -y
+conda activate .abs_venv
+```
+
+Install PyTorch with CUDA 12.6 support:
+
+```bash
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+```
+
+Verify GPU visibility:
+
+```bash
+python -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
+```
+
+Install dependencies:
+
+```bash
+pip install sae-lens transformer-lens transformers datasets numpy pandas scikit-learn scipy matplotlib seaborn plotly streamlit pytest tqdm jsonlines einops jaxtyping
+```
+
+## Quickstart
+
+```bash
+git clone https://github.com/ErykMajoch/AbstentionAnatomy.git
+cd AbstentionAnatomy
+python scripts/verify_install.py
+```
+
+## Results
+
+### Phase A: Tooling Verification
+
+Verified on 10 different factual prompts. The model correctly predicts completions e.g. "The Eiffel Tower is in the city of" → " Paris" with SAE reconstruction $\text{R}^2$ = 0.99 and $L_0$ sparsity of between 50 and 73 active features per position.
+
+Top features at layer 13 for the Eiffel Tower prompt can be inspected on Neuronpedia:
+
+- [Feature 7055](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/7055) - capital cities
+- [Feature 210](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/210) - geopolitical/governmental entities
+- [Feature 90](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/90) - urban locations and regions
+- [Feature 635](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/635) - scenic locations and landmarks
+
+Full results: [`results/00/top_features.csv`](results/00/top_features.csv)
+
+## Compute Notes
+
+The entire project is designed to run on a single consumer GPU with 8 GB VRAM. Key constraints and mitigations:
+
+- **Model:** Gemma 3 1B Instruct loaded in fp16 (~2 GB VRAM).
+- **SAE:** One Gemma Scope 2 SAE at a time (~0.5 GB). SAEs are loaded and unloaded per-layer during activation collection.
+- **Batch size:** 1-4 prompts per forward pass depending on sequence length.
+- **Sequence length:** Capped at 128 tokens by default.
+- **fp16 stability:** Turing GPUs lack native bf16. All reconstruction quality calculations cast to fp32 to avoid overflow.
+
+## Author
+
+Eryk Majoch
+
+## License
+
+This project is licensed under the GNU General Public License v3.0. See [LICENSE](LICENSE) for details.
