@@ -90,6 +90,62 @@ cd AbstentionAnatomy
 python scripts/verify_install.py
 ```
 
+## Dataset
+
+This project uses matched prompt pairs across four abstention categories. Each pair holds topic, length and style constant, in which only the abstention-triggering property differs.
+
+| Category | Source | Licence | Pairs |
+|---|---|---|---|
+| `false_premise` | [FalseQA](https://github.com/thunlp/FalseQA) | MIT | 300 / 2,365 available |
+| `underspecified` | [AmbigQA](https://github.com/shmsw25/AmbigQA) | CC BY-SA 4.0 | 300 / ~6,000 available |
+| `safety_refusal` | [XSTest](https://huggingface.co/datasets/walledai/XSTest) and [JailbreakBench](https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors) | CC BY 4.0 / MIT | ~299 combined |
+| `unanswerable` | Templates and hand-written | Original | 288 (125 template + 163 human) |
+
+### Reproducing the dataset
+
+**1. Download raw data**
+
+FalseQA (CSVs):
+
+```bash
+git clone https://github.com/thunlp/FalseQA /tmp/FalseQA
+cp /tmp/FalseQA/data/train.csv datasets/raw/falseqa/
+cp /tmp/FalseQA/data/valid.csv datasets/raw/falseqa/
+cp /tmp/FalseQA/data/test.csv datasets/raw/falseqa/
+```
+
+AmbigQA (JSONs):
+
+```bash
+git clone https://github.com/shmsw25/AmbigQA /tmp/AmbigQA
+cp /tmp/AmbigQA/data/train.json datasets/raw/ambigqa/
+cp /tmp/AmbigQA/data/dev.json datasets/raw/ambigqa/
+```
+
+XSTest and JailbreakBench are loaded from HuggingFace at runtime so no manual download needed.
+
+**2. Expected directory structure**
+
+```
+datasets/raw/
+├── falseqa/
+│   ├── train.csv
+│   ├── valid.csv
+│   └── test.csv
+├── ambigqa/
+│   ├── train.json
+│   └── dev.json
+└── unanswerable_human.json   (included in repo)
+```
+
+**3. Build the contrast pairs**
+
+```bash
+python scripts/01_build_contrasts.py
+```
+
+This produces `datasets/processed/all_prompts.jsonl` (~2,374 prompts) and `datasets/processed/all_pairs.json` (~1,187 pairs grouped by class).
+
 ## Results
 
 ### Phase A: Tooling Verification
