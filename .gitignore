@@ -23,7 +23,7 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data and model artifacts (too large for git)
+# Data and model artifacts
 results/activations/
 *.npy
 *.npz
@@ -39,11 +39,17 @@ results/activations/
 .DS_Store
 Thumbs.db
 
-# Large datasets (keep only metadata in git)
-datasets/raw/*.json
-datasets/raw/*.jsonl
-datasets/raw/*.csv
-!datasets/raw/.gitkeep
+# Raw third party datasets
+datasets/raw/**/*.json
+datasets/raw/**/*.jsonl
+datasets/raw/**/*.csv
+
+# Exception: my own hand written pairs
+!datasets/raw/unanswerable_human.json
+
+# Generated dataset outputs
+datasets/intermediate/
+datasets/processed/
 
 # LaTeX build artifacts
 report/*.aux
