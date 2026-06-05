@@ -51,6 +51,13 @@ datasets/raw/**/*.csv
 datasets/intermediate/
 datasets/processed/
 
+# Human validation answer key
+datasets/human_validation/answer_key.json
+
+# Exception: my own human annotation
+!datasets/human_validation/samples.jsonl
+!datasets/human_validation/annotations.jsonl
+
 # LaTeX build artifacts
 report/*.aux
 report/*.log
