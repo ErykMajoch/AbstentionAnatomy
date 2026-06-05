@@ -1,0 +1,59 @@
+{
+  "n_total": 2260,
+  "n_unanimous": 2005,
+  "n_split": 255,
+  "fleiss_kappa": 0.7626,
+  "pairwise_cohens_kappa": {
+    "deepseek_nemotron": 0.7092,
+    "deepseek_qwen": 0.7589,
+    "nemotron_qwen": 0.8277
+  },
+  "overall_agreement_pct": 88.7,
+  "per_class": {
+    "unanswerable": {
+      "n": 576,
+      "fleiss_kappa": 0.5957,
+      "pairwise_cohens_kappa": {
+        "deepseek_nemotron": 0.4796,
+        "deepseek_qwen": 0.6813,
+        "nemotron_qwen": 0.6261
+      },
+      "unanimous_pct": 85.2
+    },
+    "underspecified": {
+      "n": 600,
+      "fleiss_kappa": 0.5987,
+      "pairwise_cohens_kappa": {
+        "deepseek_nemotron": 0.5765,
+        "deepseek_qwen": 0.5734,
+        "nemotron_qwen": 0.6553
+      },
+      "unanimous_pct": 95.5
+    },
+    "false_premise": {
+      "n": 600,
+      "fleiss_kappa": 0.4389,
+      "pairwise_cohens_kappa": {
+        "deepseek_nemotron": 0.324,
+        "deepseek_qwen": 0.4615,
+        "nemotron_qwen": 0.5869
+      },
+      "unanimous_pct": 85.0
+    },
+    "safety_refusal": {
+      "n": 484,
+      "fleiss_kappa": 0.85,
+      "pairwise_cohens_kappa": {
+        "deepseek_nemotron": 0.814,
+        "deepseek_qwen": 0.8282,
+        "nemotron_qwen": 0.9079
+      },
+      "unanimous_pct": 89.0
+    }
+  },
+  "judges": [
+    "deepseek",
+    "nemotron",
+    "qwen"
+  ]
+}

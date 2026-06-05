@@ -31,7 +31,7 @@ This project proceeds in six phases:
 
 1. **Tooling verification**: Run factual prompts through the model with a hooked SAE, confirm that top-activating features are interpretable through [Neuronpedia](https://www.neuronpedia.org), and measure SAE reconstruction quality ($\text{R}^2$, $\text{MSE}$).
 
-2. **Contrast dataset construction**: Build matched prompt pairs across four abstention categories (unanswerable, underspecified, false premise, safety refusal). Each pair holds topic, length and style constant. Only the abstention-triggering property differs. The model's actual behaviour (abstain vs answer) is labelled through greedy generation and keyword classification.
+2. **Contrast dataset construction**: Build matched prompt pairs across four abstention categories (unanswerable, underspecified, false premise, safety refusal). Each pair holds topic, length and style constant. Only the abstention-triggering property differs. The model's actual behaviour (abstain vs answer) is labelled by a 3-model LLM judge panel with majority voting, validated against human annotations.
 
 3. **Feature discovery**: Collect SAE feature activations for all prompts across multiple layers, then rank features using three complementary methods: standardised mean difference (Cohen's d), L1-regularised logistic probes and per-feature activation frequency analysis. Consensus features that appear across methods form the candidate set. Baselines (raw residual stream probes, logprob entropy) establish what the SAE features must beat.
 
@@ -103,7 +103,7 @@ This project uses matched prompt pairs across four abstention categories. Each p
 
 ### Reproducing the dataset
 
-**1. Download raw data**
+#### 1. Download raw data
 
 FalseQA (CSVs):
 
@@ -124,7 +124,7 @@ cp /tmp/AmbigQA/data/dev.json datasets/raw/ambigqa/
 
 XSTest and JailbreakBench are loaded from HuggingFace at runtime so no manual download needed.
 
-**2. Expected directory structure**
+#### 2. Expected directory structure
 
 ```
 datasets/raw/
@@ -138,13 +138,29 @@ datasets/raw/
 └── unanswerable_human.json   (included in repo)
 ```
 
-**3. Build the contrast pairs**
+#### 3. Build the contrast pairs
 
 ```bash
 python scripts/01_build_contrasts.py
 ```
 
-This produces `datasets/processed/all_prompts.jsonl` (~2,374 prompts) and `datasets/processed/all_pairs.json` (~1,187 pairs grouped by class).
+This produces `datasets/processed/all_prompts.jsonl` (2,260 prompts) and `datasets/processed/all_pairs.json` (1,130 pairs grouped by class).
+
+#### 4. Generate model responses and label behaviour
+
+```bash
+python scripts/02_label_behaviour.py
+```
+
+This generates greedy responses from Gemma 3 1B Instruct for all prompts. Once responses are generated, run them through 3 LLM judges externally (see [`datasets/DATASHEET.md`](datasets/DATASHEET.md) for the judge prompt template and models used), saving outputs as `datasets/processed/labelled_prompts_{model_name}.jsonl`.
+
+#### 5. Aggregate labels and split
+
+```bash
+python scripts/02b_aggregate_labels.py
+```
+
+This computes majority vote across the 3 judges, reports inter-judge agreement (Fleiss' kappa), generates human validation samples, evaluates human annotations if present and creates pair-aware train/validation/test splits.
 
 ## Results
 
@@ -160,6 +176,30 @@ Top features at layer 13 for the Eiffel Tower prompt can be inspected on Neuronp
 - [Feature 635](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/635) - scenic locations and landmarks
 
 Full results: [`results/00/top_features.csv`](results/00/top_features.csv)
+
+### Phase B: Contrast Dataset
+
+2,260 prompts (1,130 matched pairs) across four abstention categories:
+
+| Class | Pairs | Source |
+|---|---|---|
+| `false_premise` | 300 | FalseQA |
+| `underspecified` | 300 | AmbigQA |
+| `safety_refusal` | 242 | XSTest + JailbreakBench |
+| `unanswerable` | 288 | Templates + hand-written |
+
+Behaviour labels are derived from a 3-model LLM judge panel (DeepSeek V4 Pro, Nemotron Ultra 550B, Qwen 3.6 27B):
+
+| Metric | Value |
+|---|---|
+| Fleiss' kappa (3 judges) | 0.7626 |
+| Unanimous agreement (3/3) | 88.7% |
+| Human vs panel Cohen's kappa | 0.7768 |
+| Human vs panel raw agreement | 94.0% |
+
+Pair-aware train/validation/test split: 1,580 / 340 / 340 prompts.
+
+Full datasheet: [`datasets/DATASHEET.md`](datasets/DATASHEET.md)
 
 ## Compute Notes
 

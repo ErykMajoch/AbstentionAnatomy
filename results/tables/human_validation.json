@@ -1,0 +1,24 @@
+{
+  "n_annotated": 100,
+  "human_vs_panel_kappa": 0.7768,
+  "human_vs_panel_agreement_pct": 94.0,
+  "human_vs_individual_judge_kappa": {
+    "deepseek": 0.7688,
+    "nemotron": 0.8092,
+    "qwen": 0.7167
+  },
+  "confusion_matrix": {
+    "abstain_abstain": 13,
+    "abstain_answer": 3,
+    "answer_abstain": 3,
+    "answer_answer": 81
+  },
+  "per_class_kappa": {
+    "unanswerable": 0.6212,
+    "underspecified": 0.0,
+    "false_premise": 0.0,
+    "safety_refusal": 0.8397
+  },
+  "threshold": 0.75,
+  "passed": true
+}

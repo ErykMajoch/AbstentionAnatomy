@@ -33,6 +33,31 @@ dataset:
   val_ratio: 0.15
   test_ratio: 0.15
 
+# Judge (LLM-as-a-judge panel for behaviour labelling)
+judge:
+  models:
+    - "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B"
+    - "deepseek-ai/DeepSeek-V4-Pro"
+    - "Qwen/Qwen3.6-27B"
+  human_validation_n: 100
+  human_kappa_threshold: 0.75
+
+# Evaluation (keyword baseline)
+evaluation:
+  abstention_keywords:
+    - "I cannot"
+    - "I can't"
+    - "I'm unable"
+    - "I don't have"
+    - "I'm not sure"
+    - "I apologize"
+    - "As an AI"
+    - "I don't know"
+    - "not possible to"
+    - "no information"
+    - "cannot provide"
+    - "unable to"
+
 # Activation collection
 activations:
   batch_size: 4
