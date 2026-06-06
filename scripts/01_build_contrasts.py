@@ -11,7 +11,7 @@ from pathlib import Path
 from datasets import load_dataset
 from src.config import setup
 
-config = setup(None)
+config = setup()
 max_tokens = config["dataset"]["max_prompt_tokens"]
 target_pairs = config["dataset"]["prompts_per_class"]
 

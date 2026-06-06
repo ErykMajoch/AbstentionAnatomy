@@ -8,7 +8,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 DEFAULT_CONFIG = PROJECT_ROOT / "configs" / "default.yaml"
 
 
-def load_config(path: str | Path | None) -> dict:
+def load_config(path: str | Path | None = None) -> dict:
     path = Path(path) if path else DEFAULT_CONFIG
     with open(path, "r", encoding="utf-8") as config:
         return yaml.safe_load(config)
@@ -41,7 +41,7 @@ def get_dtype(config: dict) -> torch.dtype:
     }[dtype_str]
 
 
-def setup(config_path: str | Path | None) -> dict:
+def setup(config_path: str | Path | None = None) -> dict:
     config = load_config(config_path)
     set_seed(config["seed"])
     config["_device"] = get_device(config)

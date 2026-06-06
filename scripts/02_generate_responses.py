@@ -11,7 +11,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from src.config import setup
 from src.utils import save_jsonl
 
-config = setup(None)
+config = setup()
 out_dir = Path("datasets/processed")
 
 # =============================

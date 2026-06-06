@@ -12,7 +12,7 @@ from src.config import setup
 from src.judge import majority_vote, cohens_kappa, fleiss_kappa
 from src.utils import save_jsonl, load_jsonl
 
-config = setup(None)
+config = setup()
 random.seed(config["seed"])
 
 processed_dir = Path("datasets/processed")

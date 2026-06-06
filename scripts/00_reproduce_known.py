@@ -9,7 +9,7 @@ from src.config import setup
 from src.model import load_model, load_sae, print_memory_report
 from src.neuronpedia import fetch_neuronpedia_explanations
 
-config = setup(None)
+config = setup()
 model = load_model(config)
 sae = load_sae(config, layer=config["sae"]["primary_layer"])
 print_memory_report()
