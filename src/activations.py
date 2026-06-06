@@ -63,3 +63,5 @@ def collect_activations(
         for position_name, array in results.items():
             np.save(save_path / f"layer_{layer}_{position_name}.npy", array)
         print(f"Saved activations to {save_path}")
+
+    return results
