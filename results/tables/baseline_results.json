@@ -1,0 +1,31 @@
+{
+  "raw_residual_layer_7": {
+    "cv_accuracy": 0.846875,
+    "cv_std": 0.013720770700332811,
+    "residual_dim": 1152
+  },
+  "raw_residual_layer_13": {
+    "cv_accuracy": 0.8739583333333332,
+    "cv_std": 0.010494500874796815,
+    "residual_dim": 1152
+  },
+  "raw_residual_layer_17": {
+    "cv_accuracy": 0.8526041666666668,
+    "cv_std": 0.024792979657108142,
+    "residual_dim": 1152
+  },
+  "raw_residual_layer_22": {
+    "cv_accuracy": 0.8380208333333334,
+    "cv_std": 0.015917402906183473,
+    "residual_dim": 1152
+  },
+  "logprob_entropy": {
+    "cv_accuracy": 0.8140625,
+    "cv_std": 0.003897559777889547,
+    "feature_names": [
+      "entropy",
+      "top_logprob",
+      "top5_prob_mass"
+    ]
+  }
+}

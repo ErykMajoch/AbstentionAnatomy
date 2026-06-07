@@ -1,0 +1,33 @@
+layer,feature_id,cohen_d,neuronpedia_url,interpretation
+7,344,0.6021,https://www.neuronpedia.org/gemma-3-1b-it/7-gemmascope-2-res-16k/344,Practical instructions and structured information requests
+7,383,0.9083,https://www.neuronpedia.org/gemma-3-1b-it/7-gemmascope-2-res-16k/383,Harmful/explicit content and safety refusal language
+7,916,0.722,https://www.neuronpedia.org/gemma-3-1b-it/7-gemmascope-2-res-16k/916,Sexually explicit or suggestive content
+7,5962,0.7811,https://www.neuronpedia.org/gemma-3-1b-it/7-gemmascope-2-res-16k/5962,"Methods, strategies, and goal-directed language"
+7,6323,0.6162,https://www.neuronpedia.org/gemma-3-1b-it/7-gemmascope-2-res-16k/6323,Contextual prepositions in technical/instructional requests
+7,7529,0.7206,https://www.neuronpedia.org/gemma-3-1b-it/7-gemmascope-2-res-16k/7529,Domain-specific terms and named entities
+7,10193,0.8239,https://www.neuronpedia.org/gemma-3-1b-it/7-gemmascope-2-res-16k/10193,Key concepts and entities in immediate context
+7,16364,0.6048,https://www.neuronpedia.org/gemma-3-1b-it/7-gemmascope-2-res-16k/16364,Structured explanations with breakdowns and lists
+13,241,0.9797,https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/241,Central topic of user query
+13,340,0.9029,https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/340,"Refusals, risk warnings, and ethical concerns"
+13,622,1.0106,https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/622,Safety protocol assertions and ethical guidelines
+13,763,1.3241,https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/763,Explicit refusal of harmful or illegal requests
+13,1235,1.0775,https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/1235,Potentially dangerous or harmful information
+13,6742,1.0483,https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/6742,Illegal or harmful activities
+13,10243,1.1841,https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/10243,Safety policy violations in user requests
+17,69,1.3602,https://www.neuronpedia.org/gemma-3-1b-it/17-gemmascope-2-res-16k/69,Content policy violations and refusal explanations
+17,256,0.8069,https://www.neuronpedia.org/gemma-3-1b-it/17-gemmascope-2-res-16k/256,Privacy and data security
+17,474,0.7816,https://www.neuronpedia.org/gemma-3-1b-it/17-gemmascope-2-res-16k/474,Numbers
+17,692,0.86,https://www.neuronpedia.org/gemma-3-1b-it/17-gemmascope-2-res-16k/692,Legal consequences
+17,1012,0.7978,https://www.neuronpedia.org/gemma-3-1b-it/17-gemmascope-2-res-16k/1012,Storytelling and narrative elements
+17,1031,0.7193,https://www.neuronpedia.org/gemma-3-1b-it/17-gemmascope-2-res-16k/1031,Constructive and responsible alternatives
+17,1315,0.8821,https://www.neuronpedia.org/gemma-3-1b-it/17-gemmascope-2-res-16k/1315,Coin collecting
+17,2696,0.8333,https://www.neuronpedia.org/gemma-3-1b-it/17-gemmascope-2-res-16k/2696,Refusal of harmful instructions
+22,101,0.7796,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/101,Violence
+22,132,1.2175,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/132,Sexually suggestive or grooming content
+22,396,0.7604,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/396,Headphone names
+22,413,0.8121,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/413,Computer programming
+22,484,0.9841,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/484,Cybersecurity tools
+22,692,0.6721,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/692,Emergency-related language
+22,754,0.8663,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/754,Violence and harm
+22,944,0.7486,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/944,Vaping
+22,2927,0.693,https://www.neuronpedia.org/gemma-3-1b-it/22-gemmascope-2-res-16k/2927,"Crime, mystery, and judicial topics"

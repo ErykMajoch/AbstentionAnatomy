@@ -1,0 +1,10 @@
+layer,method,cv_accuracy,cv_std,notes
+7,SAE probe (L1),0.8078125,0.019996201896304654,"Interpretable, 497 nonzero features"
+7,Raw residual (L2),0.846875,0.013720770700332811,"Upper bound, 1152-dim"
+13,SAE probe (L1),0.859375,0.01358167167750552,"Interpretable, 588 nonzero features"
+13,Raw residual (L2),0.8739583333333332,0.010494500874796815,"Upper bound, 1152-dim"
+17,SAE probe (L1),0.8567708333333334,0.01647019614671031,"Interpretable, 627 nonzero features"
+17,Raw residual (L2),0.8526041666666668,0.024792979657108142,"Upper bound, 1152-dim"
+22,SAE probe (L1),0.8401041666666667,0.019108267008170997,"Interpretable, 697 nonzero features"
+22,Raw residual (L2),0.8380208333333334,0.015917402906183473,"Upper bound, 1152-dim"
+,Logprob entropy,0.8140625,0.003897559777889547,"3 features (entropy, top logprob, top-5 mass)"

@@ -201,6 +201,37 @@ Pair-aware train/validation/test split: 1,580 / 340 / 340 prompts.
 
 Full datasheet: [`datasets/DATASHEET.md`](datasets/DATASHEET.md)
 
+### Phase C: Feature Discovery
+
+Three discovery methods rank SAE features by their ability to distinguish abstain from answer prompts:
+
+1. **Mean activation difference** (Cohen's d): standardised effect size per feature
+2. **Sparse linear probe** (L1 logistic regression): cross-validated classification using SAE features
+3. **Activation frequency**: per-feature precision/recall as a binary abstention detector
+
+Features appearing in the top-15 of at least 2-of-3 methods form the consensus set:
+
+| Layer | Consensus features (2-of-3) | Best probe CV accuracy |
+|---|---|---|
+| 7 | 8 features | 0.808 |
+| 13 | 7 features | 0.859 |
+| 17 | 8 features | 0.857 |
+| 22 | 9 features | 0.840 |
+
+Baseline comparison (best layer = 13):
+
+| Method | CV Accuracy | Notes |
+|---|---|---|
+| SAE probe (L1) | 0.859 | Interpretable, 588 nonzero features |
+| Raw residual (L2) | 0.874 | Upper bound, not interpretable |
+| Logprob entropy | 0.814 | 3 uncertainty features |
+
+The SAE probe reaches within 1.5 percentage points of the raw residual upper bound at layer 13, indicating the SAE decomposition preserves nearly all discriminative signal while providing interpretable features. Both substantially beat the logprob entropy baseline.
+
+Full results: [`results/tables/discovery_results.json`](results/tables/discovery_results.json), [`results/tables/baseline_results.json`](results/tables/baseline_results.json), [`results/tables/discovery_comparison_table.csv`](results/tables/discovery_comparison_table.csv)
+
+Neuronpedia lookup for consensus features: [`results/tables/candidate_features_interpretations.csv`](results/tables/candidate_features_interpretations.csv)
+
 ## Compute Notes
 
 The entire project is designed to run on a single consumer GPU with 8 GB VRAM. Key constraints and mitigations:

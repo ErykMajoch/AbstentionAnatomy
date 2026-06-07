@@ -8,6 +8,8 @@ from sklearn.model_selection import cross_val_score
 
 # Compute mean difference (Cohen's d per feature)
 def mean_activation_difference(activations: np.ndarray, labels: np.ndarray) -> dict:
+    activations = activations.astype(np.float32)
+
     abstain_mask = labels == 1
     answer_mask = labels == 0
 
@@ -49,8 +51,9 @@ def mean_activation_difference(activations: np.ndarray, labels: np.ndarray) -> d
 def sparse_linear_probe(
     activations: np.ndarray, labels: np.ndarray, C: float = 1.0, cv_folds: int = 5
 ) -> dict:
+    activations = activations.astype(np.float32)
     clf = LogisticRegression(
-        penalty="l1", C=C, solver="saga", max_iter=2000, random_state=42
+        C=C, solver="liblinear", l1_ratio=1, max_iter=5000, random_state=42
     )
 
     cv_scores = cross_val_score(
@@ -74,6 +77,7 @@ def sparse_linear_probe(
 
 # Per feature precision and recall as a binary abstention detector
 def activation_frequency(activations: np.ndarray, labels: np.ndarray) -> dict:
+    activations = activations.astype(np.float32)
     binary_fires = (activations > 0).astype(np.float32)
 
     abstain_mask = labels == 1
@@ -143,7 +147,7 @@ def baseline_raw_residual_probe(
     residuals = np.stack(all_residuals).astype(np.float32)
 
     clf = LogisticRegression(
-        penalty="l2", C=1.0, solver="lbfgs", max_iter=2000, random_state=42
+        C=1.0, solver="liblinear", l1_ratio=0, max_iter=5000, random_state=42
     )
     cv_scores = cross_val_score(clf, residuals, labels, cv=cv_folds, scoring="accuracy")
 
@@ -173,7 +177,7 @@ def baseline_logprob_entropy(
         with torch.no_grad():
             logits = model(tokens)
 
-        probs = torch.softmax(logits[0, -1, :], dim=-1)
+        probs = torch.softmax(logits[0, -1, :].float(), dim=-1)
         entropy = -(probs * torch.log(probs + 1e-10)).sum().item()
         top_logprob = torch.log(probs.max()).item()
         top5_prob_mass = probs.topk(5).values.sum().item()
@@ -183,7 +187,7 @@ def baseline_logprob_entropy(
     features = np.array(features)
 
     clf = LogisticRegression(
-        penalty="l2", C=1.0, solver="lbfgs", max_iter=2000, random_state=42
+        C=1.0, solver="liblinear", l1_ratio=0, max_iter=5000, random_state=42
     )
     cv_scores = cross_val_score(clf, features, labels, cv=cv_folds, scoring="accuracy")
 
