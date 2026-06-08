@@ -255,16 +255,10 @@ Majority vote (2/3 or 3/3) determines each label. This panel achieved Cohen's ka
 
 Scripts follow a two-phase workflow:
 
-1. **Generate**: steering/ablation scripts produce model responses and save them to `results/steering/responses/`
-2. **Classify**: an external tool (`tools/judge_classify.py`, not committed) calls the judge panel via [W&B Inference](https://docs.wandb.ai/guides/inference) and saves labelled responses to `results/steering/labelled/`
-3. **Analyse**: re-running the script loads judge labels and computes metrics
+1. **Generate**: Steering/ablation scripts produce model responses and save them to `results/`
+2. **Classify**: An external tool calls the judge panel and saves labelled responses to `results/labelled/`
+3. **Analyse**: Re-running the same script loads judge labels and computes relevant metrics
 
-To classify responses:
-
-```bash
-export WANDB_API_KEY=<your-key>
-python tools/judge_classify.py
-```
 
 ### Phase D: Causal Validation
 
