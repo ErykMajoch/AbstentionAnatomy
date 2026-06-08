@@ -10,8 +10,17 @@ This project locates, causally validates and taxonomises the internal SAE featur
 - [Methodology](#methodology)
 - [Hypotheses](#hypotheses)
 - [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
 - [Quickstart](#quickstart)
+- [Dataset](#dataset)
+  - [Reproducing the dataset](#reproducing-the-dataset)
 - [Results](#results)
+  - [Phase A: Tooling Verification](#phase-a-tooling-verification)
+  - [Phase B: Contrast Dataset](#phase-b-contrast-dataset)
+  - [Phase C: Feature Discovery](#phase-c-feature-discovery)
+  - [Abstention Classification](#abstention-classification)
+  - [Phase D: Causal Validation](#phase-d-causal-validation)
 - [Compute Notes](#compute-notes)
 - [Author](#author)
 - [License](#license)
@@ -231,6 +240,58 @@ The SAE probe reaches within 1.5 percentage points of the raw residual upper bou
 Full results: [`results/tables/discovery_results.json`](results/tables/discovery_results.json), [`results/tables/baseline_results.json`](results/tables/baseline_results.json), [`results/tables/discovery_comparison_table.csv`](results/tables/discovery_comparison_table.csv)
 
 Neuronpedia lookup for consensus features: [`results/tables/candidate_features_interpretations.csv`](results/tables/candidate_features_interpretations.csv)
+
+### Abstention Classification
+
+All post-discovery classification (Phases D onwards) uses the same 3-model LLM judge panel from Phase B rather than keyword matching:
+
+| Judge | Model |
+|---|---|
+| DeepSeek | `deepseek-ai/DeepSeek-V4-Pro` |
+| Nemotron | `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B` |
+| Qwen | `Qwen/Qwen3.6-27B` |
+
+Majority vote (2/3 or 3/3) determines each label. This panel achieved Cohen's kappa = 0.78 and 94% raw agreement against human annotations in Phase B validation (see [`datasets/DATASHEET.md`](datasets/DATASHEET.md)).
+
+Scripts follow a two-phase workflow:
+
+1. **Generate**: steering/ablation scripts produce model responses and save them to `results/steering/responses/`
+2. **Classify**: an external tool (`tools/judge_classify.py`, not committed) calls the judge panel via [W&B Inference](https://docs.wandb.ai/guides/inference) and saves labelled responses to `results/steering/labelled/`
+3. **Analyse**: re-running the script loads judge labels and computes metrics
+
+To classify responses:
+
+```bash
+export WANDB_API_KEY=<your-key>
+python tools/judge_classify.py
+```
+
+### Phase D: Causal Validation
+
+#### Preliminary Results
+
+Steer the model by adding scaled SAE decoder directions to the residual stream during generation. For each consensus feature from Phase C, a sweep across steering coefficients is performed on held-out test prompts and the resulting abstention rate is measured through the LLM judge panel. Two issues had to be resolved before the pipeline produced valid results:
+
+
+**Steering coefficient scaling**
+
+The standard SAE steering formula is $h_l \leftarrow h_l + \alpha \cdot d_f$, where $d_f$ is the unit-normalised SAE decoder direction for feature $f$. Published work on Gemma models ([FGAA](https://arxiv.org/abs/2501.09929), [SAE-TS](https://arxiv.org/abs/2411.02193)) reports behavioural effects at $\alpha \approx 20$-$200$, but these results use TransformerLens which folds layer norms into the model weights, giving residual stream norms of ~50-100.
+
+This project uses `SAETransformerBridge` which wraps raw HuggingFace weights without norm folding. The measured residual stream norm at layer 13 is ~12,184. At $\alpha = 20$ the perturbation is 0.16% of the residual magnitude, far below the threshold for behavioural change. Empirically, 157 of 350 prompt-feature pairs produced byte-identical responses across all coefficients from $-5$ to $+20$, confirming the intervention was invisible to the model.
+
+**Pilot calibration**
+
+A pilot sweep on feature 241 (5 prompts, $\alpha \in \{0, 100, 500, 1000, 3000, 5000, 10000, 20000\}$) established the effective range for `SAETransformerBridge`:
+
+| $\alpha$ | Observed effect |
+|---|---|
+| 0-100 | No visible change from baseline |
+| 500 | Meaningful response changes, coherent output |
+| 1000 | Onset of repetition and gibberish |
+| >= 3000 | Complete output collapse (empty responses) |
+
+The final coefficient range is `[-800, -500, -300, -150, 0, 150, 300, 500, 800, 1000]`, spanning from sub-threshold through the effective zone to the edge of coherence degradation in both directions.
+
 
 ## Compute Notes
 
