@@ -58,6 +58,12 @@ datasets/human_validation/answer_key.json
 !datasets/human_validation/samples.jsonl
 !datasets/human_validation/annotations.jsonl
 
+# External tooling
+tools/
+
+# Steering responses and judge labels
+results/steering/
+
 # LaTeX build artifacts
 report/*.aux
 report/*.log
