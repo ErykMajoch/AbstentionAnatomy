@@ -294,6 +294,21 @@ Because `SAETransformerBridge` wraps raw HuggingFace weights without norm foldin
 
 Full results: [`results/tables/steering_answer_to_abstain.json`](results/tables/steering_answer_to_abstain.json), [`results/tables/steering_abstain_to_answer.json`](results/tables/steering_abstain_to_answer.json)
 
+#### Ablation
+
+For each consensus feature, zero out its SAE activation during generation on 50 held-out abstain prompts and compare to unmodified baseline responses. The baseline abstention rate on these prompts is 20% (10/50).
+
+| Feature | Flip rate | Baseline abstain | Ablated abstain | Abstain -> Answer | Answer -> Abstain |
+|---|---|---|---|---|---|
+| 241 | 16% (8/50) | 20% | 32% | 1 | 7 |
+| 6742 | 16% (8/50) | 20% | 32% | 1 | 7 |
+| 340 | 14% (7/50) | 20% | 30% | 1 | 6 |
+| 622 | 14% (7/50) | 20% | 34% | 0 | 7 |
+| 1235 | 14% (7/50) | 20% | 30% | 1 | 6 |
+| 10243 | 14% (7/50) | 20% | 30% | 1 | 6 |
+| 763 | 12% (6/50) | 20% | 32% | 0 | 6 |
+
+Full results: [`results/tables/ablation_results.json`](results/tables/ablation_results.json)
 
 ## Compute Notes
 

@@ -83,8 +83,8 @@ def ablate_and_generate(
                 top_k=1 if temperature == 0 else 50,
             )
         finally:
-            model.reset_hooks()
             model.reset_saes()
+            model.reset_hooks()
 
     generated_tokens = output[0, tokens.shape[1] :]
     response = model.tokenizer.decode(generated_tokens, skip_special_tokens=True)
