@@ -1,0 +1,226 @@
+{
+  "241": {
+    "-150": {
+      "abstain_rate": 0.2,
+      "n": 50,
+      "abstain": 10,
+      "answer": 40
+    },
+    "-300": {
+      "abstain_rate": 0.24,
+      "n": 50,
+      "abstain": 12,
+      "answer": 38
+    },
+    "-500": {
+      "abstain_rate": 0.24,
+      "n": 50,
+      "abstain": 12,
+      "answer": 38
+    },
+    "-800": {
+      "abstain_rate": 0.2,
+      "n": 50,
+      "abstain": 10,
+      "answer": 40
+    },
+    "-1000": {
+      "abstain_rate": 0.36,
+      "n": 50,
+      "abstain": 18,
+      "answer": 32
+    }
+  },
+  "340": {
+    "-150": {
+      "abstain_rate": 0.22,
+      "n": 50,
+      "abstain": 11,
+      "answer": 39
+    },
+    "-300": {
+      "abstain_rate": 0.22,
+      "n": 50,
+      "abstain": 11,
+      "answer": 39
+    },
+    "-500": {
+      "abstain_rate": 0.26,
+      "n": 50,
+      "abstain": 13,
+      "answer": 37
+    },
+    "-800": {
+      "abstain_rate": 0.24,
+      "n": 50,
+      "abstain": 12,
+      "answer": 38
+    },
+    "-1000": {
+      "abstain_rate": 0.28,
+      "n": 50,
+      "abstain": 14,
+      "answer": 36
+    }
+  },
+  "622": {
+    "-150": {
+      "abstain_rate": 0.24,
+      "n": 50,
+      "abstain": 12,
+      "answer": 38
+    },
+    "-300": {
+      "abstain_rate": 0.16,
+      "n": 50,
+      "abstain": 8,
+      "answer": 42
+    },
+    "-500": {
+      "abstain_rate": 0.18,
+      "n": 50,
+      "abstain": 9,
+      "answer": 41
+    },
+    "-800": {
+      "abstain_rate": 0.16,
+      "n": 50,
+      "abstain": 8,
+      "answer": 42
+    },
+    "-1000": {
+      "abstain_rate": 0.22,
+      "n": 50,
+      "abstain": 11,
+      "answer": 39
+    }
+  },
+  "763": {
+    "-150": {
+      "abstain_rate": 0.24,
+      "n": 50,
+      "abstain": 12,
+      "answer": 38
+    },
+    "-300": {
+      "abstain_rate": 0.24,
+      "n": 50,
+      "abstain": 12,
+      "answer": 38
+    },
+    "-500": {
+      "abstain_rate": 0.24,
+      "n": 50,
+      "abstain": 12,
+      "answer": 38
+    },
+    "-800": {
+      "abstain_rate": 0.28,
+      "n": 50,
+      "abstain": 14,
+      "answer": 36
+    },
+    "-1000": {
+      "abstain_rate": 0.48,
+      "n": 50,
+      "abstain": 24,
+      "answer": 26
+    }
+  },
+  "1235": {
+    "-150": {
+      "abstain_rate": 0.16,
+      "n": 50,
+      "abstain": 8,
+      "answer": 42
+    },
+    "-300": {
+      "abstain_rate": 0.22,
+      "n": 50,
+      "abstain": 11,
+      "answer": 39
+    },
+    "-500": {
+      "abstain_rate": 0.18,
+      "n": 50,
+      "abstain": 9,
+      "answer": 41
+    },
+    "-800": {
+      "abstain_rate": 0.22,
+      "n": 50,
+      "abstain": 11,
+      "answer": 39
+    },
+    "-1000": {
+      "abstain_rate": 0.36,
+      "n": 50,
+      "abstain": 18,
+      "answer": 32
+    }
+  },
+  "6742": {
+    "-150": {
+      "abstain_rate": 0.24,
+      "n": 50,
+      "abstain": 12,
+      "answer": 38
+    },
+    "-300": {
+      "abstain_rate": 0.22,
+      "n": 50,
+      "abstain": 11,
+      "answer": 39
+    },
+    "-500": {
+      "abstain_rate": 0.26,
+      "n": 50,
+      "abstain": 13,
+      "answer": 37
+    },
+    "-800": {
+      "abstain_rate": 0.34,
+      "n": 50,
+      "abstain": 17,
+      "answer": 33
+    },
+    "-1000": {
+      "abstain_rate": 0.52,
+      "n": 50,
+      "abstain": 26,
+      "answer": 24
+    }
+  },
+  "10243": {
+    "-150": {
+      "abstain_rate": 0.2,
+      "n": 50,
+      "abstain": 10,
+      "answer": 40
+    },
+    "-300": {
+      "abstain_rate": 0.28,
+      "n": 50,
+      "abstain": 14,
+      "answer": 36
+    },
+    "-500": {
+      "abstain_rate": 0.28,
+      "n": 50,
+      "abstain": 14,
+      "answer": 36
+    },
+    "-800": {
+      "abstain_rate": 0.46,
+      "n": 50,
+      "abstain": 23,
+      "answer": 27
+    },
+    "-1000": {
+      "abstain_rate": 0.64,
+      "n": 50,
+      "abstain": 32,
+      "answer": 18
+    }
+  }
+}

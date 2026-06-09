@@ -262,29 +262,37 @@ Scripts follow a two-phase workflow:
 
 ### Phase D: Causal Validation
 
-#### Preliminary Results
+Steer the model by adding $\alpha \cdot d_f$ to the residual stream at layer 13 during generation, where $d_f$ is the unit-normalised SAE decoder direction for a feature and $\alpha$ is the steering coefficient. Abstention is classified by the same 3-model LLM judge panel used in Phase B.
 
-Steer the model by adding scaled SAE decoder directions to the residual stream during generation. For each consensus feature from Phase C, a sweep across steering coefficients is performed on held-out test prompts and the resulting abstention rate is measured through the LLM judge panel. Two issues had to be resolved before the pipeline produced valid results:
+Because `SAETransformerBridge` wraps raw HuggingFace weights without norm folding, the residual stream norm at layer 13 is ~12,184, which much larger than in TransformerLens-based work where norm folding gives norms of ~50-100. Standard coefficients ($\alpha \approx 20$-$200$) have no visible effect. A pilot sweep showed that the effective range is $\alpha \approx 500$-$1000$, with output collapse above $\alpha = 3000$. The final range is `[-800, -500, -300, -150, 0, 150, 300, 500, 800, 1000]`.
 
+#### Steering
 
-**Steering coefficient scaling**
+**Inducing abstention** (positive $\alpha$ on answer prompts, baseline = 8%):
 
-The standard SAE steering formula is $h_l \leftarrow h_l + \alpha \cdot d_f$, where $d_f$ is the unit-normalised SAE decoder direction for feature $f$. Published work on Gemma models ([FGAA](https://arxiv.org/abs/2501.09929), [SAE-TS](https://arxiv.org/abs/2411.02193)) reports behavioural effects at $\alpha \approx 20$-$200$, but these results use TransformerLens which folds layer norms into the model weights, giving residual stream norms of ~50-100.
+| Feature | Interpretation | Peak ($\alpha$=1000) |
+|---|---|---|
+| [622](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/622) | Safety protocol assertions and ethical guidelines | 94% |
+| [763](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/763) | Explicit refusal of harmful or illegal requests | 86% |
+| [340](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/340) | Refusals, risk warnings, and ethical concerns | 84% |
+| [241](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/241) | Central topic of user query | 82% |
+| [10243](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/10243) | Safety policy violations in user requests | 52% |
+| [6742](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/6742) | Illegal or harmful activities | 52% |
+| [1235](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/1235) | Potentially dangerous or harmful information | 34% |
 
-This project uses `SAETransformerBridge` which wraps raw HuggingFace weights without norm folding. The measured residual stream norm at layer 13 is ~12,184. At $\alpha = 20$ the perturbation is 0.16% of the residual magnitude, far below the threshold for behavioural change. Empirically, 157 of 350 prompt-feature pairs produced byte-identical responses across all coefficients from $-5$ to $+20$, confirming the intervention was invisible to the model.
+**Suppressing abstention** (negative $\alpha$ on abstain prompts):
 
-**Pilot calibration**
+| Feature | Best suppression | At $\alpha$ | $\alpha$=-1000 |
+|---|---|---|---|
+| [622](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/622) | 16% | -300 | 22% |
+| [1235](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/1235) | 16% | -150 | 36% |
+| [241](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/241) | 20% | -150 | 36% |
+| [10243](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/10243) | 20% | -150 | 64% |
+| [340](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/340) | 22% | -150 | 28% |
+| [6742](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/6742) | 22% | -300 | 52% |
+| [763](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/763) | 24% | -150 | 48% |
 
-A pilot sweep on feature 241 (5 prompts, $\alpha \in \{0, 100, 500, 1000, 3000, 5000, 10000, 20000\}$) established the effective range for `SAETransformerBridge`:
-
-| $\alpha$ | Observed effect |
-|---|---|
-| 0-100 | No visible change from baseline |
-| 500 | Meaningful response changes, coherent output |
-| 1000 | Onset of repetition and gibberish |
-| >= 3000 | Complete output collapse (empty responses) |
-
-The final coefficient range is `[-800, -500, -300, -150, 0, 150, 300, 500, 800, 1000]`, spanning from sub-threshold through the effective zone to the edge of coherence degradation in both directions.
+Full results: [`results/tables/steering_answer_to_abstain.json`](results/tables/steering_answer_to_abstain.json), [`results/tables/steering_abstain_to_answer.json`](results/tables/steering_abstain_to_answer.json)
 
 
 ## Compute Notes
