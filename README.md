@@ -310,6 +310,13 @@ For each consensus feature, zero out its SAE activation during generation on 50 
 
 Full results: [`results/tables/ablation_results.json`](results/tables/ablation_results.json)
 
+#### Dose-response
+
+![Dose-response curves](results/figures/dose_response_curves.png)
+Sweeping the steering coefficient reveals a monotonic relationship between coefficient magnitude and abstention rate when inducing abstention on answer prompts.
+
+Full results: [`results/tables/steering_answer_to_abstain.json`](results/tables/steering_answer_to_abstain.json), [`results/tables/steering_abstain_to_answer.json`](results/tables/steering_abstain_to_answer.json)
+
 ## Compute Notes
 
 The entire project is designed to run on a single consumer GPU with 8 GB VRAM. Key constraints and mitigations:
