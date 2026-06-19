@@ -1,0 +1,1222 @@
+{
+  "random_direction": {
+    "random_seed_42": {
+      "-800": {
+        "abstain_rate": 0.9,
+        "n": 50,
+        "abstain": 45,
+        "answer": 5
+      },
+      "-500": {
+        "abstain_rate": 0.26,
+        "n": 50,
+        "abstain": 13,
+        "answer": 37
+      },
+      "-300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "500": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "800": {
+        "abstain_rate": 0.58,
+        "n": 50,
+        "abstain": 29,
+        "answer": 21
+      },
+      "1000": {
+        "abstain_rate": 0.78,
+        "n": 50,
+        "abstain": 39,
+        "answer": 11
+      }
+    },
+    "random_seed_43": {
+      "-800": {
+        "abstain_rate": 0.74,
+        "n": 50,
+        "abstain": 37,
+        "answer": 13
+      },
+      "-500": {
+        "abstain_rate": 0.24,
+        "n": 50,
+        "abstain": 12,
+        "answer": 38
+      },
+      "-300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "500": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "800": {
+        "abstain_rate": 0.76,
+        "n": 50,
+        "abstain": 38,
+        "answer": 12
+      },
+      "1000": {
+        "abstain_rate": 0.74,
+        "n": 50,
+        "abstain": 37,
+        "answer": 13
+      }
+    },
+    "random_seed_44": {
+      "-800": {
+        "abstain_rate": 0.72,
+        "n": 50,
+        "abstain": 36,
+        "answer": 14
+      },
+      "-500": {
+        "abstain_rate": 0.24,
+        "n": 50,
+        "abstain": 12,
+        "answer": 38
+      },
+      "-300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "-150": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "500": {
+        "abstain_rate": 0.2,
+        "n": 50,
+        "abstain": 10,
+        "answer": 40
+      },
+      "800": {
+        "abstain_rate": 0.46,
+        "n": 50,
+        "abstain": 23,
+        "answer": 27
+      },
+      "1000": {
+        "abstain_rate": 0.8,
+        "n": 50,
+        "abstain": 40,
+        "answer": 10
+      }
+    },
+    "random_seed_45": {
+      "-800": {
+        "abstain_rate": 0.62,
+        "n": 50,
+        "abstain": 31,
+        "answer": 19
+      },
+      "-500": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "-300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "0": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "500": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "800": {
+        "abstain_rate": 0.46,
+        "n": 50,
+        "abstain": 23,
+        "answer": 27
+      },
+      "1000": {
+        "abstain_rate": 0.64,
+        "n": 50,
+        "abstain": 32,
+        "answer": 18
+      }
+    },
+    "random_seed_46": {
+      "-800": {
+        "abstain_rate": 0.48,
+        "n": 50,
+        "abstain": 24,
+        "answer": 26
+      },
+      "-500": {
+        "abstain_rate": 0.16,
+        "n": 50,
+        "abstain": 8,
+        "answer": 42
+      },
+      "-300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "500": {
+        "abstain_rate": 0.18,
+        "n": 50,
+        "abstain": 9,
+        "answer": 41
+      },
+      "800": {
+        "abstain_rate": 0.72,
+        "n": 50,
+        "abstain": 36,
+        "answer": 14
+      },
+      "1000": {
+        "abstain_rate": 0.98,
+        "n": 50,
+        "abstain": 49,
+        "answer": 1
+      }
+    },
+    "random_seed_47": {
+      "-800": {
+        "abstain_rate": 0.54,
+        "n": 50,
+        "abstain": 27,
+        "answer": 23
+      },
+      "-500": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "-300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "-150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "300": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "500": {
+        "abstain_rate": 0.12,
+        "n": 50,
+        "abstain": 6,
+        "answer": 44
+      },
+      "800": {
+        "abstain_rate": 0.62,
+        "n": 50,
+        "abstain": 31,
+        "answer": 19
+      },
+      "1000": {
+        "abstain_rate": 0.98,
+        "n": 50,
+        "abstain": 49,
+        "answer": 1
+      }
+    },
+    "random_seed_48": {
+      "-800": {
+        "abstain_rate": 0.46,
+        "n": 50,
+        "abstain": 23,
+        "answer": 27
+      },
+      "-500": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "-300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "-150": {
+        "abstain_rate": 0.12,
+        "n": 50,
+        "abstain": 6,
+        "answer": 44
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "300": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "500": {
+        "abstain_rate": 0.22,
+        "n": 50,
+        "abstain": 11,
+        "answer": 39
+      },
+      "800": {
+        "abstain_rate": 0.64,
+        "n": 50,
+        "abstain": 32,
+        "answer": 18
+      },
+      "1000": {
+        "abstain_rate": 0.78,
+        "n": 50,
+        "abstain": 39,
+        "answer": 11
+      }
+    },
+    "random_seed_49": {
+      "-800": {
+        "abstain_rate": 0.74,
+        "n": 50,
+        "abstain": 37,
+        "answer": 13
+      },
+      "-500": {
+        "abstain_rate": 0.12,
+        "n": 50,
+        "abstain": 6,
+        "answer": 44
+      },
+      "-300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "500": {
+        "abstain_rate": 0.12,
+        "n": 50,
+        "abstain": 6,
+        "answer": 44
+      },
+      "800": {
+        "abstain_rate": 0.56,
+        "n": 50,
+        "abstain": 28,
+        "answer": 22
+      },
+      "1000": {
+        "abstain_rate": 0.78,
+        "n": 50,
+        "abstain": 39,
+        "answer": 11
+      }
+    },
+    "random_seed_50": {
+      "-800": {
+        "abstain_rate": 0.72,
+        "n": 50,
+        "abstain": 36,
+        "answer": 14
+      },
+      "-500": {
+        "abstain_rate": 0.14,
+        "n": 50,
+        "abstain": 7,
+        "answer": 43
+      },
+      "-300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "300": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "500": {
+        "abstain_rate": 0.12,
+        "n": 50,
+        "abstain": 6,
+        "answer": 44
+      },
+      "800": {
+        "abstain_rate": 0.72,
+        "n": 50,
+        "abstain": 36,
+        "answer": 14
+      },
+      "1000": {
+        "abstain_rate": 0.86,
+        "n": 50,
+        "abstain": 43,
+        "answer": 7
+      }
+    },
+    "random_seed_51": {
+      "-800": {
+        "abstain_rate": 0.42,
+        "n": 50,
+        "abstain": 21,
+        "answer": 29
+      },
+      "-500": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-300": {
+        "abstain_rate": 0.02,
+        "n": 50,
+        "abstain": 1,
+        "answer": 49
+      },
+      "-150": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "500": {
+        "abstain_rate": 0.12,
+        "n": 50,
+        "abstain": 6,
+        "answer": 44
+      },
+      "800": {
+        "abstain_rate": 0.74,
+        "n": 50,
+        "abstain": 37,
+        "answer": 13
+      },
+      "1000": {
+        "abstain_rate": 0.92,
+        "n": 50,
+        "abstain": 46,
+        "answer": 4
+      }
+    }
+  },
+  "unrelated_feature": {
+    "unrelated_1": {
+      "-800": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "-500": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "-300": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "-150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "300": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "500": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "800": {
+        "abstain_rate": 0.2,
+        "n": 50,
+        "abstain": 10,
+        "answer": 40
+      },
+      "1000": {
+        "abstain_rate": 0.34,
+        "n": 50,
+        "abstain": 17,
+        "answer": 33
+      }
+    },
+    "unrelated_21": {
+      "-800": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "-500": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "-150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "500": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "800": {
+        "abstain_rate": 0.14,
+        "n": 50,
+        "abstain": 7,
+        "answer": 43
+      },
+      "1000": {
+        "abstain_rate": 0.28,
+        "n": 50,
+        "abstain": 14,
+        "answer": 36
+      }
+    },
+    "unrelated_90": {
+      "-800": {
+        "abstain_rate": 0.4,
+        "n": 50,
+        "abstain": 20,
+        "answer": 30
+      },
+      "-500": {
+        "abstain_rate": 0.14,
+        "n": 50,
+        "abstain": 7,
+        "answer": 43
+      },
+      "-300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "-150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "500": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "800": {
+        "abstain_rate": 0.76,
+        "n": 50,
+        "abstain": 38,
+        "answer": 12
+      },
+      "1000": {
+        "abstain_rate": 0.98,
+        "n": 50,
+        "abstain": 49,
+        "answer": 1
+      }
+    }
+  },
+  "comparison_features": {
+    "622": {
+      "-800": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "-500": {
+        "abstain_rate": 0.0,
+        "n": 50,
+        "abstain": 0,
+        "answer": 50
+      },
+      "-300": {
+        "abstain_rate": 0.02,
+        "n": 50,
+        "abstain": 1,
+        "answer": 49
+      },
+      "-150": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "300": {
+        "abstain_rate": 0.14,
+        "n": 50,
+        "abstain": 7,
+        "answer": 43
+      },
+      "500": {
+        "abstain_rate": 0.28,
+        "n": 50,
+        "abstain": 14,
+        "answer": 36
+      },
+      "800": {
+        "abstain_rate": 0.84,
+        "n": 50,
+        "abstain": 42,
+        "answer": 8
+      },
+      "1000": {
+        "abstain_rate": 0.94,
+        "n": 50,
+        "abstain": 47,
+        "answer": 3
+      }
+    },
+    "763": {
+      "-800": {
+        "abstain_rate": 0.12,
+        "n": 50,
+        "abstain": 6,
+        "answer": 44
+      },
+      "-500": {
+        "abstain_rate": 0.02,
+        "n": 50,
+        "abstain": 1,
+        "answer": 49
+      },
+      "-300": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "-150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.06,
+        "n": 50,
+        "abstain": 3,
+        "answer": 47
+      },
+      "300": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "500": {
+        "abstain_rate": 0.16,
+        "n": 50,
+        "abstain": 8,
+        "answer": 42
+      },
+      "800": {
+        "abstain_rate": 0.46,
+        "n": 50,
+        "abstain": 23,
+        "answer": 27
+      },
+      "1000": {
+        "abstain_rate": 0.86,
+        "n": 50,
+        "abstain": 43,
+        "answer": 7
+      }
+    },
+    "340": {
+      "-800": {
+        "abstain_rate": 0.18,
+        "n": 50,
+        "abstain": 9,
+        "answer": 41
+      },
+      "-500": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "-300": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "-150": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "0": {
+        "abstain_rate": 0.08,
+        "n": 50,
+        "abstain": 4,
+        "answer": 46
+      },
+      "150": {
+        "abstain_rate": 0.04,
+        "n": 50,
+        "abstain": 2,
+        "answer": 48
+      },
+      "300": {
+        "abstain_rate": 0.1,
+        "n": 50,
+        "abstain": 5,
+        "answer": 45
+      },
+      "500": {
+        "abstain_rate": 0.16,
+        "n": 50,
+        "abstain": 8,
+        "answer": 42
+      },
+      "800": {
+        "abstain_rate": 0.54,
+        "n": 50,
+        "abstain": 27,
+        "answer": 23
+      },
+      "1000": {
+        "abstain_rate": 0.84,
+        "n": 50,
+        "abstain": 42,
+        "answer": 8
+      }
+    }
+  },
+  "per_coefficient_null": {
+    "-800": {
+      "mean": 0.6339999999999999,
+      "std": 0.14725488107359974,
+      "ci_95": [
+        0.542,
+        0.72805
+      ],
+      "values": [
+        0.9,
+        0.74,
+        0.72,
+        0.62,
+        0.48,
+        0.54,
+        0.46,
+        0.74,
+        0.72,
+        0.42
+      ]
+    },
+    "-500": {
+      "mean": 0.14400000000000004,
+      "std": 0.07525955088890711,
+      "ci_95": [
+        0.1,
+        0.192
+      ],
+      "values": [
+        0.26,
+        0.24,
+        0.24,
+        0.06,
+        0.16,
+        0.1,
+        0.04,
+        0.12,
+        0.14,
+        0.08
+      ]
+    },
+    "-300": {
+      "mean": 0.068,
+      "std": 0.018330302779823362,
+      "ci_95": [
+        0.05600000000000001,
+        0.078
+      ],
+      "values": [
+        0.08,
+        0.08,
+        0.06,
+        0.08,
+        0.08,
+        0.06,
+        0.06,
+        0.08,
+        0.08,
+        0.02
+      ]
+    },
+    "-150": {
+      "mean": 0.07,
+      "std": 0.022360679774997897,
+      "ci_95": [
+        0.05600000000000001,
+        0.08399999999999999
+      ],
+      "values": [
+        0.06,
+        0.08,
+        0.04,
+        0.08,
+        0.06,
+        0.08,
+        0.12,
+        0.06,
+        0.08,
+        0.04
+      ]
+    },
+    "0": {
+      "mean": 0.08199999999999999,
+      "std": 0.006000000000000001,
+      "ci_95": [
+        0.07999999999999999,
+        0.086
+      ],
+      "values": [
+        0.08,
+        0.08,
+        0.08,
+        0.1,
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08
+      ]
+    },
+    "150": {
+      "mean": 0.06600000000000002,
+      "std": 0.018000000000000002,
+      "ci_95": [
+        0.05600000000000001,
+        0.07600000000000001
+      ],
+      "values": [
+        0.04,
+        0.04,
+        0.06,
+        0.08,
+        0.1,
+        0.08,
+        0.06,
+        0.08,
+        0.06,
+        0.06
+      ]
+    },
+    "300": {
+      "mean": 0.076,
+      "std": 0.017435595774162697,
+      "ci_95": [
+        0.06600000000000002,
+        0.088
+      ],
+      "values": [
+        0.06,
+        0.06,
+        0.08,
+        0.06,
+        0.06,
+        0.1,
+        0.1,
+        0.08,
+        0.1,
+        0.06
+      ]
+    },
+    "500": {
+      "mean": 0.13399999999999998,
+      "std": 0.04737087712930804,
+      "ci_95": [
+        0.10600000000000001,
+        0.162
+      ],
+      "values": [
+        0.1,
+        0.1,
+        0.2,
+        0.06,
+        0.18,
+        0.12,
+        0.22,
+        0.12,
+        0.12,
+        0.12
+      ]
+    },
+    "800": {
+      "mean": 0.626,
+      "std": 0.1050904372433572,
+      "ci_95": [
+        0.5599999999999999,
+        0.69005
+      ],
+      "values": [
+        0.58,
+        0.76,
+        0.46,
+        0.46,
+        0.72,
+        0.62,
+        0.64,
+        0.56,
+        0.72,
+        0.74
+      ]
+    },
+    "1000": {
+      "mean": 0.8260000000000002,
+      "std": 0.10316976301223144,
+      "ci_95": [
+        0.76595,
+        0.89
+      ],
+      "values": [
+        0.78,
+        0.74,
+        0.8,
+        0.64,
+        0.98,
+        0.98,
+        0.78,
+        0.78,
+        0.86,
+        0.92
+      ]
+    }
+  },
+  "summary": {
+    "random_mean_max_abstain_rate": 0.8400000000000001,
+    "random_std_max_abstain_rate": 0.10237187113655781,
+    "random_ci_95": [
+      0.778,
+      0.9040000000000001
+    ],
+    "random_n_seeds": 10,
+    "unrelated_max_abstain_rates": {
+      "1": 0.34,
+      "21": 0.28,
+      "90": 0.98
+    },
+    "real_max_abstain_rates": {
+      "622": 0.94,
+      "763": 0.86,
+      "340": 0.84
+    },
+    "specificity_confirmed": false
+  }
+}

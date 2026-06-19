@@ -97,6 +97,35 @@ def ablate_and_generate(
     }
 
 
+def steer_with_direction(
+    model,
+    direction: torch.Tensor,
+    prompt: str,
+    coeff: float,
+    layer: int,
+    max_new_tokens: int = 64,
+    temperature: float = 0.0,
+) -> str:
+    hook_name = f"blocks.{layer}.hook_out"
+    hook_fn = partial(_steering_hook, direction=direction, coeff=coeff)
+    tokens = model.to_tokens(prompt)
+
+    with torch.no_grad():
+        model.add_hook(hook_name, hook_fn)
+        try:
+            output = model.generate(
+                tokens,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                top_k=1 if temperature == 0 else 50,
+            )
+        finally:
+            model.reset_hooks()
+
+    generated_tokens = output[0, tokens.shape[1] :]
+    return model.tokenizer.decode(generated_tokens, skip_special_tokens=True)
+
+
 def batch_steer_experiment(
     model,
     sae,
