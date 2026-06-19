@@ -317,6 +317,24 @@ Sweeping the steering coefficient reveals a monotonic relationship between coeff
 
 Full results: [`results/tables/steering_answer_to_abstain.json`](results/tables/steering_answer_to_abstain.json), [`results/tables/steering_abstain_to_answer.json`](results/tables/steering_abstain_to_answer.json)
 
+#### Controls
+
+Two control conditions test whether the steering effects are specific to the discovered abstention features or an artefact of injecting any sufficiently large perturbation into the residual stream.
+
+- **Random directions** (Control 1): 10 random vectors, each with the same L2 norm as Feature 622's decoder direction, steered at the same coefficients on the same 50 answer prompts.
+- **Unrelated features** (Control 2): Three Neuronpedia features with no relation to abstention: [Feature 1](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/1) (temperatures and measurements), [Feature 21](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/21) (location and confinement), [Feature 90](https://www.neuronpedia.org/gemma-3-1b-it/13-gemmascope-2-res-16k/90) (cities, states and regions).
+
+| $\alpha$ | Random mean (n=10) | Feature 622 | Feature 763 | Feature 340 | Feature 1 | Feature 21 | Feature 90 |
+|---|---|---|---|---|---|---|---|
+| 0 | 8% | 8% | 8% | 8% | 8% | 8% | 8% |
+| 300 | 8% | **14%** | 8% | 10% | 10% | 8% | 8% |
+| 500 | 13% | **28%** | 16% | 16% | 10% | 6% | 10% |
+| 800 | 63% | 84% | 46% | 54% | 20% | 14% | 76% |
+| 1000 | 83% | 94% | 86% | 84% | 34% | 28% | 98% |
+
+
+Full results: [`results/tables/control_steering_results.json`](results/tables/control_steering_results.json)
+
 ## Compute Notes
 
 The entire project is designed to run on a single consumer GPU with 8 GB VRAM. Key constraints and mitigations:
