@@ -405,6 +405,29 @@ The heatmap shows Cohen's d for each class's top features across all four classe
 
 Full results: [`results/tables/multiclass_results.json`](results/tables/multiclass_results.json)
 
+#### Cross-steering
+
+For each class, steer its top feature on answer prompts from all four classes at $\alpha$=1000 (30 prompts per cell).
+
+|  | F1983 (unanswerable) | F544 (underspecified) | F101 (false\_premise) | F763 (safety\_refusal) |
+|---|---|---|---|---|
+| `unanswerable` | +50% | +93% | +20% | +70% |
+| `underspecified` | +67% | +83% | +33% | +80% |
+| `false_premise` | +60% | +97% | +33% | +80% |
+| `safety_refusal` | +70% | +80% | +57% | +77% |
+
+| Metric | Value |
+|---|---|
+| Diagonal mean delta | +60.83% |
+| Off-diagonal mean delta | +67.22% |
+| Specificity ratio (diag / off-diag) | 0.90x |
+
+The specificity ratio is below 1.0, meaning off-diagonal effects are as strong as on-diagonal effects. This suggests the per-class features converge onto a shared downstream abstention mechanism rather than operating through independent class-specific pathways.
+
+![Cross-steering matrix](results/figures/cross_steering_matrix.png)
+
+Full results: [`results/tables/cross_steering_results.json`](results/tables/cross_steering_results.json)
+
 ## Compute Notes
 
 The entire project is designed to run on a single consumer GPU with 8 GB VRAM. Key constraints and mitigations:
