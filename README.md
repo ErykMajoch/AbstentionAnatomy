@@ -21,6 +21,7 @@ This project locates, causally validates and taxonomises the internal SAE featur
   - [Phase C: Feature Discovery](#phase-c-feature-discovery)
   - [Abstention Classification](#abstention-classification)
   - [Phase D: Causal Validation](#phase-d-causal-validation)
+  - [Phase E: Multiplicity](#phase-e-multiplicity)
 - [Compute Notes](#compute-notes)
 - [Author](#author)
 - [License](#license)
@@ -350,6 +351,59 @@ Evaluate whether steering degrades the model's ability to answer factual questio
 
 
 Full results: [`results/tables/capability_eval_results.json`](results/tables/capability_eval_results.json)
+
+### Phase E: Multiplicity
+
+#### Per-class feature discovery
+
+For each abstention class, run Cohen's d and L1 logistic probe on only that class's prompts (abstain vs answer within-class) at layer 13:
+
+| Class | Top feature | Cohen's d | Probe CV accuracy | Nonzero features |
+|---|---|---|---|---|
+| `unanswerable` | Feature 1983 | 1.209 | 0.847 | 153 |
+| `underspecified` | Feature 544 | 2.512 | 0.959 | 82 |
+| `false_premise` | Feature 101 | 1.352 | 0.906 | 136 |
+| `safety_refusal` | Feature 763 | 0.925 | 0.659 | 224 |
+
+Each class's top-15 features are almost entirely disjoint. The Phase D consensus features (622, 763, 340, 6742, 10243, 1235) appear exclusively in `safety_refusal`'s top features, meaning that they are safety-specific rather than general abstention features.
+
+#### Feature overlap
+
+Pairwise Jaccard similarity between each class's top-15 Cohen's d features:
+
+| Pair | Jaccard | Shared features |
+|---|---|---|
+| unanswerable vs underspecified | 0.034 | {1983} |
+| unanswerable vs false_premise | 0.000 | {} |
+| unanswerable vs safety_refusal | 0.034 | {14229} |
+| underspecified vs false_premise | 0.071 | {494, 701} |
+| underspecified vs safety_refusal | 0.000 | {} |
+| false_premise vs safety_refusal | 0.000 | {} |
+
+Maximum Jaccard is 0.071 (underspecified vs false_premise sharing 2 features). Three of the six pairs share zero features.
+
+#### Cosine similarity between class-mean directions
+
+For each class, compute the mean abstain minus mean answer direction in SAE feature space and measure pairwise cosine similarity:
+
+| Pair | Cosine similarity |
+|---|---|
+| unanswerable vs underspecified | 0.249 |
+| unanswerable vs false_premise | 0.036 |
+| unanswerable vs safety_refusal | 0.161 |
+| underspecified vs false_premise | 0.201 |
+| underspecified vs safety_refusal | 0.178 |
+| false_premise vs safety_refusal | 0.095 |
+
+All pairs are below 0.25, with `false_premise` vs `safety_refusal` at only 0.095. The abstention classes use largely orthogonal directions in SAE feature space.
+
+#### Feature x class heatmap
+
+![Feature x class heatmap](results/figures/feature_class_heatmap.png)
+
+The heatmap shows Cohen's d for each class's top features across all four classes. Each column has its own distinct high-activation features with minimal cross-class signal.
+
+Full results: [`results/tables/multiclass_results.json`](results/tables/multiclass_results.json)
 
 ## Compute Notes
 
