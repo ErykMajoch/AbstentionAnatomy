@@ -335,6 +335,22 @@ Two control conditions test whether the steering effects are specific to the dis
 
 Full results: [`results/tables/control_steering_results.json`](results/tables/control_steering_results.json)
 
+#### Capability preservation
+
+Evaluate whether steering degrades the model's ability to answer factual questions. For each of the top 3 features, steer and generate responses to 200 TriviaQA validation questions at positive coefficients. Accuracy is measured by substring matching against answer aliases.
+
+| $\alpha$ | Baseline | Feature 622 | Feature 763 | Feature 340 |
+|---|---|---|---|---|
+| 0 | 19.0% | 19.0% | 19.0% | 19.0% |
+| 150 | - | 18.0% | 18.0% | 21.5% |
+| 300 | - | 14.0% | 16.0% | **19.5%** |
+| 500 | - | 12.0% | 13.0% | **15.5%** |
+| 800 | - | 0.5% | 6.5% | 6.0% |
+| 1000 | - | 1.5% | 4.0% | 2.0% |
+
+
+Full results: [`results/tables/capability_eval_results.json`](results/tables/capability_eval_results.json)
+
 ## Compute Notes
 
 The entire project is designed to run on a single consumer GPU with 8 GB VRAM. Key constraints and mitigations:
