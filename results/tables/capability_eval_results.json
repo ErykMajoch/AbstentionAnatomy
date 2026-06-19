@@ -1,0 +1,113 @@
+{
+  "340": {
+    "0": {
+      "accuracy": 0.19,
+      "correct": 38,
+      "total": 200
+    },
+    "150": {
+      "accuracy": 0.215,
+      "correct": 43,
+      "total": 200
+    },
+    "300": {
+      "accuracy": 0.195,
+      "correct": 39,
+      "total": 200
+    },
+    "500": {
+      "accuracy": 0.155,
+      "correct": 31,
+      "total": 200
+    },
+    "800": {
+      "accuracy": 0.06,
+      "correct": 12,
+      "total": 200
+    },
+    "1000": {
+      "accuracy": 0.02,
+      "correct": 4,
+      "total": 200
+    }
+  },
+  "622": {
+    "0": {
+      "accuracy": 0.19,
+      "correct": 38,
+      "total": 200
+    },
+    "150": {
+      "accuracy": 0.18,
+      "correct": 36,
+      "total": 200
+    },
+    "300": {
+      "accuracy": 0.14,
+      "correct": 28,
+      "total": 200
+    },
+    "500": {
+      "accuracy": 0.12,
+      "correct": 24,
+      "total": 200
+    },
+    "800": {
+      "accuracy": 0.005,
+      "correct": 1,
+      "total": 200
+    },
+    "1000": {
+      "accuracy": 0.015,
+      "correct": 3,
+      "total": 200
+    }
+  },
+  "763": {
+    "0": {
+      "accuracy": 0.19,
+      "correct": 38,
+      "total": 200
+    },
+    "150": {
+      "accuracy": 0.18,
+      "correct": 36,
+      "total": 200
+    },
+    "300": {
+      "accuracy": 0.16,
+      "correct": 32,
+      "total": 200
+    },
+    "500": {
+      "accuracy": 0.13,
+      "correct": 26,
+      "total": 200
+    },
+    "800": {
+      "accuracy": 0.065,
+      "correct": 13,
+      "total": 200
+    },
+    "1000": {
+      "accuracy": 0.04,
+      "correct": 8,
+      "total": 200
+    }
+  },
+  "summary": {
+    "baseline_accuracies": {
+      "622": 0.19,
+      "763": 0.19,
+      "340": 0.19
+    },
+    "best_tradeoff": {
+      "feature_id": 340,
+      "coeff": 500,
+      "accuracy": 0.155,
+      "accuracy_drop": 0.035,
+      "abstention_shift": 0.08,
+      "within_5pct": true
+    }
+  }
+}
